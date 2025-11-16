@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main style="text-align:center; padding:3rem; font-family:sans-serif;">
+    <h1 style="color:#1e90ff;">JAMstack デモサイト</h1>
+    <p style="font-size:1.2rem; margin:1rem 0;">
+      Astroで作った高速で安全な静的サイトです。  
+      <br>Cloudflare Pagesで簡単にデプロイできます。
+    </p>
+
+    <!-- 画像サンプル -->
+    <img src="/assets/sample-image.jpg" alt="サンプル画像" style="max-width:400px; border-radius:8px; margin:2rem 0;">
+
+    <!-- インタラクションサンプル -->
+    <button id="clickBtn" style="padding:0.5rem 1rem; font-size:1rem; cursor:pointer;">ボタンを押してね</button>
+    <p id="msg" style="margin-top:1rem; font-weight:bold; color:#ff4500;"></p>
+
+    <script type="module">
+      const btn = document.getElementById('clickBtn');
+      const msg = document.getElementById('msg');
+
+      btn.addEventListener('click', () => {
+        msg.textContent = "🎉 JAMstack最高！";
+      });
+    </script>
+  </main>
 </Layout>
